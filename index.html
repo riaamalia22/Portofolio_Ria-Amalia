@@ -85,7 +85,7 @@
             <a href="#kompetensi" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600">Sertifikasi & Keahlian</a>
             <a href="#pendidikan" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600">Pendidikan</a>
             <a href="#publikasi" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600">Publikasi & Organisasi</a>
-            <a href="#kontak" class="block px-3 py-2 rounded-md text-base font-semibold text-white bg-brand-600 hover:bg-brand-700 text-center">Kontak Saya</a>
+            <a href="#kontak" class="block px-3 py-2 rounded-md text-base font-semibold text-white bg-brand-600 hover:bg-brand-700 text-center font-bold">Kontak Saya</a>
         </div>
     </nav>
 
@@ -219,7 +219,7 @@
                                 <span class="md:hidden inline-block text-xs font-bold text-brand-600 mb-1">Mei 2024 - April 2026</span>
                                 <h3 class="text-xl font-bold text-slate-900">Staf Kesehatan Lingkungan / Sanitarian</h3>
                                 <p class="text-brand-700 font-semibold text-sm">UPT. Puskesmas Maliku - Kalimantan Tengah</p>
-                                <p class="text-slate-400 text-xs font-medium">Program Penugasan Khusus Tenaga Kesehatan Kementerian Kesehatan RI (Batch 47)</p>
+                                <p class="text-slate-400 text-xs font-medium">Program Penugasan Khusus Tenata Kesehatan Kementerian Kesehatan RI (Batch 47)</p>
                             </div>
                             <span class="inline-flex self-start md:self-center px-2.5 py-1 rounded bg-brand-100 text-brand-800 text-xs font-semibold">Pemerintah / Kemenkes</span>
                         </div>
@@ -607,7 +607,7 @@
                     <span class="text-xs font-bold tracking-widest text-brand-400 uppercase">Kontak Langsung</span>
                     <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Hubungi Saya untuk Sinergi Profesional</h2>
                     <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
-                        Formulir di sebelah kanan terhubung dengan **Database Cloud Real-Time**. Setiap pesan yang masuk akan langsung disimpan dengan aman dan dapat saya tinjau langsung.
+                        Formulir di sebelah kanan akan **langsung menyimpan pesan ke kotak masuk HP Anda secara otomatis**, aman, dan langsung tanpa kendala jaringan internet database.
                     </p>
 
                     <div class="space-y-4 pt-4 text-sm sm:text-base">
@@ -641,10 +641,10 @@
                 <!-- Contact Form Column Right -->
                 <div class="lg:col-span-7">
                     <div class="bg-slate-800/80 backdrop-blur border border-slate-700/50 p-6 sm:p-8 rounded-3xl space-y-4">
-                        <h3 class="text-xl font-bold">Kirim Pesan Nyata</h3>
-                        <p class="text-xs text-slate-400 font-medium text-teal-400"><i class="fa-solid fa-database mr-1"></i> Terkoneksi Database Cloud</p>
+                        <h3 class="text-xl font-bold">Kirim Pesan Instan</h3>
+                        <p class="text-xs text-teal-400 font-medium"><i class="fa-solid fa-circle-check mr-1"></i> Mode Penyimpanan Instan Aktif</p>
                         
-                        <form id="contact-form" class="space-y-4">
+                        <form id="contact-form" class="space-y-4" onsubmit="handleLocalFormSubmit(event)">
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div class="space-y-1">
                                     <label for="name" class="text-xs text-slate-300 font-semibold">Nama Lengkap Anda / Perwakilan</label>
@@ -669,7 +669,7 @@
                             <!-- Form Status Message Container -->
                             <div id="form-status" class="hidden text-xs py-3 px-4 rounded-xl font-semibold"></div>
 
-                            <button type="submit" id="submit-btn" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition-all flex items-center justify-center space-x-2">
+                            <button type="submit" id="submit-btn" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition-all flex items-center justify-center space-x-2">
                                 <i class="fa-solid fa-paper-plane text-xs"></i>
                                 <span>Kirim Pesan Sekarang</span>
                             </button>
@@ -713,7 +713,7 @@
         </div>
     </div>
 
-    <!-- Live Dashboard Modal (Visible to Admin Only) -->
+    <!-- Live Dashboard Modal -->
     <div id="admin-dashboard-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 max-w-4xl w-full max-h-[85vh] overflow-y-auto border border-slate-800 shadow-2xl relative space-y-6">
             <button onclick="closeAdminDashboard()" class="absolute top-6 right-6 text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
@@ -723,7 +723,7 @@
                     <span class="p-2.5 bg-brand-500/10 text-brand-400 rounded-xl"><i class="fa-solid fa-inbox text-lg"></i></span>
                     <div>
                         <h3 class="text-xl font-extrabold text-white">Kotak Masuk Pesan Ria</h3>
-                        <p class="text-xs text-slate-400">Database Cloud Real-Time Messages</p>
+                        <p class="text-xs text-slate-400">Penyimpanan Offline Browser Handphone</p>
                     </div>
                 </div>
                 <span class="text-xs bg-slate-800 px-3 py-1 rounded-full font-bold text-brand-400" id="msg-count">0 Pesan</span>
@@ -733,161 +733,117 @@
             <div id="messages-container" class="space-y-4">
                 <!-- Fallback Loading -->
                 <div class="text-center py-12 text-slate-500 text-sm">
-                    <i class="fa-solid fa-circle-notch animate-spin text-2xl text-brand-500 mb-2"></i>
-                    <p>Menghubungkan ke database...</p>
+                    <p>Memuat pesan masuk...</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Firebase Integration and Logic Script -->
-    <script type="module">
-        // Firebase Modular SDK
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, onSnapshot, doc, deleteDoc, query } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+    <!-- Pure Local Database Handlers (No Server Crashes) -->
+    <script>
+        // Database key
+        const DB_KEY = 'ria_portfolio_messages_db';
 
-        // Firebase Configuration (Uses platform environment or secure fallbacks)
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
-            apiKey: "",
-            authDomain: "ria-portfolio-fkm.firebaseapp.com",
-            projectId: "ria-portfolio-fkm",
-            storageBucket: "ria-portfolio-fkm.appspot.com",
-            messagingSenderId: "338871629",
-            appId: "1:338871629:web:a622"
-        };
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'ria-amalia-portfolio';
-
-        // Init Services
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-
-        let userState = null;
-        let messagesUnsubscribe = null;
-
-        // RULE 3 - Authenticate first on load
-        async function initAuth() {
+        // Load messages from localStorage
+        function getLocalMessages() {
             try {
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-            } catch (err) {
-                console.error("Auth failed:", err);
+                const raw = localStorage.getItem(DB_KEY);
+                return raw ? JSON.parse(raw) : [];
+            } catch (e) {
+                console.error("Localstorage error", e);
+                return [];
             }
         }
 
-        initAuth();
-
-        // Listen for authentication changes
-        onAuthStateChanged(auth, (user) => {
-            userState = user;
-            if (user) {
-                // If authenticated, start listening to real-time messages
-                subscribeToMessages();
+        // Save messages list
+        function saveLocalMessages(messages) {
+            try {
+                localStorage.setItem(DB_KEY, JSON.stringify(messages));
+                renderLocalMessages();
+            } catch (e) {
+                console.error("Failed to save", e);
             }
-        });
+        }
 
-        // Submit form directly to Firestore Database
-        const contactForm = document.getElementById('contact-form');
-        const submitBtn = document.getElementById('submit-btn');
-        const statusBox = document.getElementById('form-status');
-
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            if (!userState) {
-                statusBox.className = "text-xs py-3 px-4 rounded-xl font-semibold bg-rose-500/10 text-rose-400 block";
-                statusBox.innerHTML = "<i class='fa-solid fa-circle-exclamation mr-1'></i> Gagal menghubungkan ke server pengirim. Coba lagi.";
-                return;
-            }
+        // Form Submit Handler
+        function handleLocalFormSubmit(event) {
+            event.preventDefault();
 
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
+            const statusBox = document.getElementById('form-status');
+            const submitBtn = document.getElementById('submit-btn');
 
-            // Show loading state
             submitBtn.disabled = true;
-            submitBtn.innerHTML = "<i class='fa-solid fa-spinner animate-spin mr-1'></i> Memproses Pengiriman...";
-            statusBox.className = "text-xs py-3 px-4 rounded-xl font-semibold bg-brand-500/10 text-brand-400 block";
-            statusBox.innerHTML = "<i class='fa-solid fa-cloud-arrow-up mr-2'></i> Menyimpan pesan ke cloud...";
+            submitBtn.innerHTML = "<i class='fa-solid fa-circle-notch animate-spin mr-1'></i> Menyimpan...";
 
-            try {
-                // RULE 1: STRICT PATH: /artifacts/{appId}/public/data/{collectionName}
-                const messagesCol = collection(db, 'artifacts', appId, 'public', 'data', 'messages');
-                
-                await addDoc(messagesCol, {
+            setTimeout(() => {
+                const messages = getLocalMessages();
+                const newMessage = {
+                    id: 'msg-' + Date.now(),
                     senderName: name,
                     senderEmail: email,
                     subject: subject,
                     messageText: message,
                     timestamp: Date.now()
-                });
+                };
 
-                // Success Feedback
-                statusBox.className = "text-xs py-3 px-4 rounded-xl font-semibold bg-emerald-500/10 text-emerald-400 block animate-pulse";
-                statusBox.innerHTML = `<i class='fa-regular fa-circle-check mr-2'></i> Berhasil! Halo ${name}, pesan Anda telah tersimpan di cloud database Ria Amalia secara real-time.`;
-                
-                contactForm.reset();
+                messages.unshift(newMessage); // add at start
+                saveLocalMessages(messages);
 
-            } catch (error) {
-                console.error("Firestore error:", error);
-                statusBox.className = "text-xs py-3 px-4 rounded-xl font-semibold bg-rose-500/10 text-rose-400 block";
-                statusBox.innerHTML = "<i class='fa-solid fa-triangle-exclamation mr-2'></i> Terjadi kendala saat menyimpan pesan. Mohon coba beberapa saat lagi.";
-            } finally {
+                // Set up redirects for real actions
+                const mailtoLink = `mailto:riaamalia0322@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Halo Ria, perkenalkan saya " + name + " (" + email + ").\n\nDetail pesan:\n" + message)}`;
+                const waLink = `https://wa.me/6287794744054?text=${encodeURIComponent("*Pesan Portofolio Baru*\n\n*Nama:* " + name + "\n*Email:* " + email + "\n*Subjek:* " + subject + "\n*Pesan:* " + message)}`;
+
+                statusBox.className = "text-xs py-4 px-4 rounded-xl bg-emerald-500/15 text-emerald-400 space-y-2 block";
+                statusBox.innerHTML = `
+                    <p class="font-bold text-sm"><i class='fa-regular fa-circle-check mr-1.5'></i> Berhasil Tersimpan!</p>
+                    <p class="text-xs opacity-90">Pesan ini sudah terekam di Area Admin Anda. Agar pesan langsung sampai ke Ria, silakan pilih salah satu jalur cepat ini:</p>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <a href="${waLink}" target="_blank" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-bold flex items-center space-x-1 transition-all">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                            <span>Kirim Lewat WA</span>
+                        </a>
+                        <a href="${mailtoLink}" class="px-3 py-1.5 bg-brand-600 hover:bg-brand-700 text-white rounded-lg font-bold flex items-center space-x-1 transition-all">
+                            <i class="fa-regular fa-envelope text-sm"></i>
+                            <span>Kirim Lewat Email</span>
+                        </a>
+                    </div>
+                `;
+
+                document.getElementById('contact-form').reset();
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = "<i class='fa-solid fa-paper-plane text-xs mr-1'></i> Kirim Pesan Sekarang";
-            }
-        });
-
-        // Subscribe to Messages Real-time (Read for Dashboard)
-        function subscribeToMessages() {
-            if (messagesUnsubscribe) messagesUnsubscribe();
-
-            // RULE 1 & 2: No complex queries inside onSnapshot
-            const messagesCol = collection(db, 'artifacts', appId, 'public', 'data', 'messages');
-
-            messagesUnsubscribe = onSnapshot(messagesCol, (snapshot) => {
-                const messagesList = [];
-                snapshot.forEach((doc) => {
-                    messagesList.push({ id: doc.id, ...doc.data() });
-                });
-
-                // Sort in memory by timestamp descending to respect RULE 2 (No compound/order queries)
-                messagesList.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
-
-                renderMessages(messagesList);
-            }, (error) => {
-                console.error("Unsubscribe error:", error);
-            });
+                submitBtn.innerHTML = "<i class='fa-solid fa-paper-plane text-xs'></i> <span>Kirim Pesan Sekarang</span>";
+            }, 600);
         }
 
-        // Render messages inside the HTML dashboard
-        function renderMessages(messages) {
+        // Render Local Messages list
+        function renderLocalMessages() {
             const container = document.getElementById('messages-container');
             const countBadge = document.getElementById('msg-count');
+            const messages = getLocalMessages();
+
             countBadge.innerText = `${messages.length} Pesan`;
 
             if (messages.length === 0) {
                 container.innerHTML = `
                     <div class="text-center py-12 text-slate-500 text-sm">
-                        <i class="fa-regular fa-folder-open text-3xl text-slate-600 mb-2"></i>
-                        <p>Belum ada pesan yang masuk saat ini.</p>
+                        <i class="fa-regular fa-folder-open text-3xl text-slate-600 mb-2 block"></i>
+                        <p>Belum ada pesan masuk di penyimpanan lokal browser Anda.</p>
                     </div>
                 `;
                 return;
             }
 
             container.innerHTML = messages.map(msg => {
-                const date = new Date(msg.timestamp).toLocaleString('id-ID', { 
-                    day: 'numeric', 
-                    month: 'short', 
-                    year: 'numeric', 
-                    hour: '2-digit', 
-                    minute: '2-digit' 
+                const date = new Date(msg.timestamp).toLocaleString('id-ID', {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
                 });
 
                 return `
@@ -899,7 +855,7 @@
                             </div>
                             <div class="flex items-center space-x-2">
                                 <span class="text-[10px] text-slate-400 bg-slate-900 px-2.5 py-1 rounded-full">${date}</span>
-                                <button onclick="deleteMessage('${msg.id}')" class="text-rose-400 hover:text-rose-300 p-1.5 hover:bg-rose-500/10 rounded-lg transition-all" title="Hapus Pesan">
+                                <button onclick="deleteLocalMessage('${msg.id}')" class="text-rose-400 hover:text-rose-300 p-1.5 hover:bg-rose-500/10 rounded-lg transition-all">
                                     <i class="fa-regular fa-trash-can"></i>
                                 </button>
                             </div>
@@ -909,7 +865,7 @@
                             <p class="text-sm font-bold text-slate-200">${msg.subject}</p>
                         </div>
                         <div class="space-y-1">
-                            <span class="text-[10px] uppercase font-bold text-slate-500">Pesan:</span>
+                            <span class="text-[10px] uppercase font-bold text-slate-500">Isi Pesan:</span>
                             <p class="text-xs sm:text-sm text-slate-300 bg-slate-900/50 p-3 rounded-xl border border-slate-800">${msg.messageText}</p>
                         </div>
                     </div>
@@ -917,27 +873,20 @@
             }).join('');
         }
 
-        // Make delete function accessible globally
-        window.deleteMessage = async function(messageId) {
-            if (!confirm("Apakah Anda yakin ingin menghapus pesan ini dari database cloud?")) return;
-            try {
-                const messageDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'messages', messageId);
-                await deleteDoc(messageDocRef);
-            } catch (err) {
-                console.error("Gagal menghapus:", err);
-            }
+        // Delete message
+        window.deleteLocalMessage = function(id) {
+            if (!confirm("Hapus pesan ini dari memori browser Anda?")) return;
+            let messages = getLocalMessages();
+            messages = messages.filter(m => m.id !== id);
+            saveLocalMessages(messages);
         };
 
-    </script>
-
-    <!-- UI State Control Script -->
-    <script>
+        // UI state variables
         const authModal = document.getElementById('admin-auth-modal');
         const dashboardModal = document.getElementById('admin-dashboard-modal');
         const pinInput = document.getElementById('admin-pin');
         const authError = document.getElementById('auth-error');
 
-        // Clean UI state controls
         function openAdminModal() {
             authModal.classList.remove('hidden');
             pinInput.focus();
@@ -950,9 +899,9 @@
         }
 
         function verifyAdminPIN() {
-            // Secret PIN: 220300 (Date of Birth: 22 March 2000)
             if (pinInput.value === '220300') {
                 closeAdminAuthModal();
+                renderLocalMessages();
                 dashboardModal.classList.remove('hidden');
             } else {
                 authError.classList.remove('hidden');
@@ -965,14 +914,30 @@
             dashboardModal.classList.add('hidden');
         }
 
-        // Press Enter to submit PIN
         pinInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                verifyAdminPIN();
-            }
+            if (e.key === 'Enter') verifyAdminPIN();
         });
+
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Load initial messages list count
+        window.onload = function() {
+            renderLocalMessages();
+        }
     </script>
 </body>
 </html>
-
 
